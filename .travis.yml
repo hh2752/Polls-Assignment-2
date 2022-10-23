@@ -1,0 +1,25 @@
+language: "python"
+
+python: 
+  - "3.7"
+
+env:
+  - DJANGO=2.2
+
+install:
+  - pip install -r requirements.txt
+  - pip install importlib-metadata
+  - pip install black
+  - pip install flake8
+  - pip install coverage
+  - pip install coveralls
+
+script:
+  - python manage.py test
+  - python -m black . --check .
+  - flake8 .
+  - coverage run --source=ebdjango,polls manage.py test
+  - coverage report -m
+  
+after_script:
+  - coveralls
