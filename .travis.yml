@@ -32,3 +32,8 @@ deploy:
   app: "django-tutorial-Assignment-2"
   env: "django-env-assignment-2"
   bucket_name: "elasticbeanstalk-us-west-2-702625943207"
+  on:
+    repo: Polls-Assignment-2
+  branches:
+    only:
+      - main
