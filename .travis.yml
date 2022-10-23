@@ -24,3 +24,11 @@ script:
 after_script:
   - coveralls
 
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $key_id
+  secret_access_key: $access_key
+  region: "us-west-2"
+  app: "django-tutorial-Assignment-2"
+  env: "django-env-assignment-2"
+  bucket_name: "elasticbeanstalk-us-west-2-702625943207"
