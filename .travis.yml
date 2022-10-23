@@ -17,8 +17,9 @@ install:
 script:
   - python manage.py test
   - python -m black . --check .
+  - black --check .
   - flake8 .
-  - coverage run --source=ebdjango,polls manage.py test
+  - coverage run --source=polls manage.py test
   - coverage report -m
   
 after_script:
@@ -33,7 +34,8 @@ deploy:
   env: "django-env-assignment-2"
   bucket_name: "elasticbeanstalk-us-west-2-702625943207"
   on:
-    repo: Polls-Assignment-2
+    repo: hh2752/Polls-Assignment-2
+     
   branches:
     only:
       - main
